@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Type;
 use App\Functions\Helpers;
+use App\Models\Project;
 
 class TypeController extends Controller
 {
@@ -17,6 +18,14 @@ class TypeController extends Controller
       $data = Type::all();
 
       return view('admin.types.index', compact('data'));
+    }
+
+    public function typesProjects()
+    {
+      $types = Type::all();
+      $projects = Project::all();
+
+      return view('admin.types.types-projects', compact('types', 'projects'));
     }
 
     /**

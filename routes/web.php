@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource('/projects', ProjectController::class)->except('create', 'edit', 'show');
         Route::resource('/technologies', TechnologyController::class)->except('create', 'edit', 'show');
         Route::resource('/types', TypeController::class)->except('create', 'edit', 'show');
+        Route::get('/types-projects', [TypeController::class, 'typesProjects'])->name('types-projects');
     });
 
 Route::middleware('auth')->group(function () {

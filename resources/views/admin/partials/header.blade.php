@@ -14,6 +14,7 @@
               <li><a class="dropdown-item" href="{{route('admin.projects.index')}}">Progetti</a></li>
               <li><a class="dropdown-item" href="{{route('admin.technologies.index')}}">Tecnologie</a></li>
               <li><a class="dropdown-item" href="{{route('admin.types.index')}}">Tipi</a></li>
+              <li><a class="dropdown-item" href="{{route('admin.types-projects')}}">Elenco Tipi/Progetti</a></li>
             </ul>
           </li>
         </ul>
