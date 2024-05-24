@@ -75,7 +75,7 @@ class TypeController extends Controller
      */
     public function show(string $id)
     {
-        //
+      //
     }
 
     /**
