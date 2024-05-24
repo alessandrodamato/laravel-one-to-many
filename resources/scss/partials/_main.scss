@@ -4,11 +4,9 @@ main{
       border: none;
       outline: none;
     }
-    select{
-      color:#757575;
-      option{
-        color: black;
-      }
+    .select-empty{
+      color: #757575;
     }
   }
 }
+

@@ -57,10 +57,10 @@
             <td><input class="w-100 add-project" type="text" placeholder="Aggiungi creatore" name="creator" value="{{old('creator')}}"></td>
             <td><input class="w-100 add-project" type="text" placeholder="Aggiungi obiettivo" name="objective" value="{{old('objective')}}"></td>
             <td>
-              <select name="type_id">
-                <option value="">Seleziona tipo</option>
+              <select class="select-empty" onchange="this.value === 'empty' ? this.className = 'select-empty' : this.className = 'text-black'" name="type_id">
+                <option class="text-black" value="empty">Seleziona tipo</option>
                 @foreach ($types as $type)
-                  <option value="{{$type->id}}" @if($type->id == old('type_id')) selected @endif>{{$type->name}}</option>
+                  <option class="text-black" value="{{$type->id}}" @if($type->id == old('type_id')) selected @endif>{{$type->name}}</option>
                 @endforeach
               </select>
             </td>
