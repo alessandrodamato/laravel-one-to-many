@@ -43,6 +43,7 @@
           <th scope="col">Name</th>
           <th scope="col">Creator</th>
           <th scope="col">Objective</th>
+          <th scope="col">Type</th>
           <th scope="col">Description</th>
           <th scope="col" class="text-center">Actions</th>
         </tr>
@@ -55,6 +56,7 @@
             <td><input class="w-100 add-project" type="text" placeholder="Aggiungi nome" name="name" value="{{old('name')}}"></td>
             <td><input class="w-100 add-project" type="text" placeholder="Aggiungi creatore" name="creator" value="{{old('creator')}}"></td>
             <td><input class="w-100 add-project" type="text" placeholder="Aggiungi obiettivo" name="objective" value="{{old('objective')}}"></td>
+            <td><input class="w-100 add-project" type="text" placeholder="Aggiungi tipo" name="type" value="{{old('type')}}"></td>
             <td><input class="w-100 add-project" type="text" placeholder="Aggiungi una descrizione" name="description" value="{{old('description')}}"></td>
             <td class="text-center">
               <button type="submit" class="btn btn-success"><i class="fa-solid fa-plus"></i></button>
@@ -71,6 +73,7 @@
             <td><input class="w-100" type="text" value="{{$item->name}}" name="name"></td>
             <td><input class="w-100" type="text" value="{{$item->creator}}" name="creator"></td>
             <td><input class="w-100" type="text" value="{{$item->objective}}" name="objective"></td>
+            <td><input class="w-100" type="text" value="{{$item->type}}" name="type"></td>
             <td><input class="w-100" type="text" value="{{$item->description}}" name="description"></td>
           </form>
           <td class="text-center">
