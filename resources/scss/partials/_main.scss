@@ -1,8 +1,14 @@
 main{
   .crud-table{
-    input{
+    input, select{
       border: none;
       outline: none;
+    }
+    select{
+      color:#757575;
+      option{
+        color: black;
+      }
     }
   }
 }

@@ -7,6 +7,7 @@ use App\Http\Requests\ProjectRequest;
 use App\Functions\Helpers;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Type;
 
 class ProjectController extends Controller
 {
@@ -17,7 +18,9 @@ class ProjectController extends Controller
 
       $projects = Project::all()->sortDesc();
 
-      return view('admin.projects.index', compact('projects'));
+      $types = Type::all();
+
+      return view('admin.projects.index', compact('projects', 'types'));
 
     }
 
@@ -26,7 +29,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -37,9 +40,11 @@ class ProjectController extends Controller
 
       $form_data = $request->all();
 
+
       $new_item = new Project();
       $new_item->name = $form_data['name'];
       $new_item->slug = Helpers::generateSlug($new_item->name, new Project());
+      $new_item->type_id = $form_data['type_id'];
       $new_item->creator = $form_data['creator'];
       $new_item->objective = $form_data['objective'];
       $new_item->description = $form_data['description'];
@@ -76,6 +81,7 @@ class ProjectController extends Controller
 
       $project->name = $form_data['name'];
       $project->slug = Helpers::generateSlug($project->name, new Project());
+      $project->type_id = $form_data['type_id'];
       $project->creator = $form_data['creator'];
       $project->objective = $form_data['objective'];
       $project->description = $form_data['description'];

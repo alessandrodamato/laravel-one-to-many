@@ -56,7 +56,14 @@
             <td><input class="w-100 add-project" type="text" placeholder="Aggiungi nome" name="name" value="{{old('name')}}"></td>
             <td><input class="w-100 add-project" type="text" placeholder="Aggiungi creatore" name="creator" value="{{old('creator')}}"></td>
             <td><input class="w-100 add-project" type="text" placeholder="Aggiungi obiettivo" name="objective" value="{{old('objective')}}"></td>
-            <td><input class="w-100 add-project" type="text" placeholder="Aggiungi tipo" name="type" value="{{old('type')}}"></td>
+            <td>
+              <select name="type_id">
+                <option value="">Seleziona tipo</option>
+                @foreach ($types as $type)
+                  <option value="{{$type->id}}" @if($type->id == old('type_id')) selected @endif>{{$type->name}}</option>
+                @endforeach
+              </select>
+            </td>
             <td><input class="w-100 add-project" type="text" placeholder="Aggiungi una descrizione" name="description" value="{{old('description')}}"></td>
             <td class="text-center">
               <button type="submit" class="btn btn-success"><i class="fa-solid fa-plus"></i></button>
@@ -73,7 +80,14 @@
             <td><input class="w-100" type="text" value="{{$item->name}}" name="name"></td>
             <td><input class="w-100" type="text" value="{{$item->creator}}" name="creator"></td>
             <td><input class="w-100" type="text" value="{{$item->objective}}" name="objective"></td>
-            <td><input class="w-100" type="text" value="{{$item->type}}" name="type"></td>
+            <td>
+              <select name="type_id">
+                <option value="">---</option>
+                @foreach ($types as $type)
+                  <option value="{{$type->id}}" @if($type->id == $item->type?->id) selected @endif>{{$type->name}}</option>
+                @endforeach
+              </select>
+            </td>
             <td><input class="w-100" type="text" value="{{$item->description}}" name="description"></td>
           </form>
           <td class="text-center">
