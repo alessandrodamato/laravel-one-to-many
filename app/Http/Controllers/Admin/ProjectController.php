@@ -21,7 +21,21 @@ class ProjectController extends Controller
 
       $types = Type::all();
 
-      return view('admin.projects.index', compact('projects', 'types'));
+      $dir = 'desc';
+
+      return view('admin.projects.index', compact('projects', 'types', 'dir'));
+
+    }
+
+    public function orderBy($col, $dir){
+
+      $dir = $dir === 'desc' ? 'asc' : 'desc';
+
+      $projects = Project::orderBy($col, $dir)->get();
+
+      $types = Type::all();
+
+      return view('admin.projects.index', compact('projects', 'types', 'dir'));
 
     }
 

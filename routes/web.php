@@ -30,6 +30,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource('/technologies', TechnologyController::class)->except('create', 'edit', 'show');
         Route::resource('/types', TypeController::class)->except('create', 'edit', 'show');
         Route::get('/types-projects', [TypeController::class, 'typesProjects'])->name('types-projects');
+        Route::get('/order-by/{col}/{dir}', [ProjectController::class, 'orderBy'])->name('order-by');
     });
 
 Route::middleware('auth')->group(function () {

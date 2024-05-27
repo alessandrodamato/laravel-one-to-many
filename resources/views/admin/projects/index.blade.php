@@ -39,10 +39,10 @@
     <table class="table crud-table">
       <thead>
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Creator</th>
-          <th scope="col">Objective</th>
+          <th scope="col"><a class="text-black text-decoration-none" href="{{route('admin.order-by', ['col' => 'id', 'dir' => $dir])}}">ID</a></th>
+          <th scope="col"><a class="text-black text-decoration-none" href="{{route('admin.order-by', ['col' => 'name', 'dir' => $dir])}}">Name</a></th>
+          <th scope="col"><a class="text-black text-decoration-none" href="{{route('admin.order-by', ['col' => 'creator', 'dir' => $dir])}}">Creator</a></th>
+          <th scope="col"><a class="text-black text-decoration-none" href="{{route('admin.order-by', ['col' => 'objective', 'dir' => $dir])}}">Objective</a></th>
           <th scope="col">Type</th>
           <th scope="col">Description</th>
           <th scope="col" class="text-center">Actions</th>
