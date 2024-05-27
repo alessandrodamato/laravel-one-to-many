@@ -61,6 +61,15 @@ class ProjectController extends Controller
 
       $form_data = $request->all();
 
+      if(array_key_exists('file', $form_data)){
+
+        $file = Storage::put('uploads', $form_data['file']);
+
+        $form_data['file'] = $file;
+
+      } else {
+        $form_data['file'] = null;
+      }
 
       $new_item = new Project();
       $new_item->name = $form_data['name'];
@@ -68,6 +77,7 @@ class ProjectController extends Controller
       $new_item->type_id = $form_data['type_id'];
       $new_item->creator = $form_data['creator'];
       $new_item->objective = $form_data['objective'];
+      $new_item->file = $form_data['file'];
       $new_item->description = $form_data['description'];
 
       $new_item->save();
