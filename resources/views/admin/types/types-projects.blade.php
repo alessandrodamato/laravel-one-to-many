@@ -18,7 +18,7 @@
     <thead>
       <tr>
         <th scope="col"><h4>Type</h4></th>
-        <th class="w-75" scope="col"><h4>Projects</h4></th>
+        <th class="w-75 text-center" scope="col"><h4>Projects</h4></th>
       </tr>
     </thead>
     <tbody>
@@ -29,7 +29,7 @@
           <td>
             <ul class="list-group">
               @foreach ($type->projects as $project)
-                <li class="list-group-item list-group-item-danger"><a class="text-decoration-none text-black"  href="{{route('admin.projects.show', $project)}}">{{$project->name}}</a></li>
+                <li class="list-group-item list-group-item-danger text-center"><a class="text-decoration-none text-black"  href="{{route('admin.projects.show', $project)}}">{{$project->name}}</a></li>
               @endforeach
             </ul>
           </td>
