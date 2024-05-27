@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug', 100);
             $table->string('creator', 100);
             $table->string('objective', 50);
+            $table->string('file')->nullable();
             $table->text('description');
             $table->timestamps();
         });

@@ -91,6 +91,7 @@
             <td><input class="w-100" type="text" value="{{$item->description}}" name="description"></td>
           </form>
           <td class="text-center">
+            <a href="{{route('admin.projects.edit', $item)}}" class="btn btn-warning"><i class="fa-solid fa-file-pen"></i></a>
             <button type="submit" onclick="editSubmit({{$item->id}})" class="btn btn-warning"><i class="fa-solid fa-pencil"></i></button>
             <form onsubmit="return confirm('Sei sicuro di voler eliminare {{$item->name}} ?')" action="{{route('admin.projects.destroy', $item)}}" method="POST" class="d-inline-block">
               @csrf

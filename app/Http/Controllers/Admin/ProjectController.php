@@ -8,6 +8,7 @@ use App\Functions\Helpers;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Type;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -80,11 +81,22 @@ class ProjectController extends Controller
 
       $form_data = $request->all();
 
+      if(array_key_exists('file', $form_data)){
+
+        $file = Storage::put('uploads', $form_data['file']);
+
+        $form_data['file'] = $file;
+
+      } else {
+        $form_data['file'] = null;
+      }
+
       $project->name = $form_data['name'];
       $project->slug = Helpers::generateSlug($project->name, new Project());
       $project->type_id = $form_data['type_id'];
       $project->creator = $form_data['creator'];
       $project->objective = $form_data['objective'];
+      $project->file = $form_data['file'];
       $project->description = $form_data['description'];
 
       $project->update();

@@ -36,7 +36,7 @@
 
     <div class="col-6 offset-3">
 
-      <form action="{{route('admin.projects.update', $project)}}" method="POST">
+      <form action="{{route('admin.projects.update', $project)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -55,7 +55,7 @@
                   placeholder="Aggiungi nome"
                   value="{{old('name', $project->name)}}"
                 >
-                @error('title')
+                @error('name')
                   <div class="text-danger my-1" style="font-size: .8rem">{{$message}}</div>
                 @enderror
               </div>
@@ -72,7 +72,7 @@
                   placeholder="Aggiungi creatore"
                   value="{{old('creator', $project->creator)}}"
                 >
-                @error('title')
+                @error('creator')
                   <div class="text-danger my-1" style="font-size: .8rem">{{$message}}</div>
                 @enderror
               </div>
@@ -89,7 +89,7 @@
                   placeholder="Aggiungi obiettivo"
                   value="{{old('objective', $project->objective)}}"
                 >
-                @error('title')
+                @error('objective')
                   <div class="text-danger my-1" style="font-size: .8rem">{{$message}}</div>
                 @enderror
               </div>
@@ -101,10 +101,10 @@
                 <select class="form-select" id="type" style="-webkit-appearance: none; -moz-appearance: none;" name="type_id">
                   <option value="">---</option>
                   @foreach ($types as $type)
-                  <option value="{{$type->id}}" @if($project->id == $project->type?->id) selected @endif>{{$type->name}}</option>
+                    <option value="{{$type->id}}" @if($type->id == $project->type?->id) selected @endif>{{$type->name}}</option>
                   @endforeach
                 </select>
-                @error('title')
+                @error('type')
                   <div class="text-danger my-1" style="font-size: .8rem">{{$message}}</div>
                   @enderror
                 </div>
@@ -121,7 +121,7 @@
                   placeholder="Carica un file .pdf"
                   value="{{old('file', $project->file)}}"
                 >
-                @error('title')
+                @error('file')
                   <div class="text-danger my-1" style="font-size: .8rem">{{$message}}</div>
                 @enderror
               </div>

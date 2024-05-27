@@ -13,7 +13,7 @@
 <div class="container text-center">
 
   <h1 class="text-center mb-5">{{$project->name}}
-    <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-warning"><i class="fa-solid fa-pencil"></i></a>
+    <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-warning"><i class="fa-solid fa-file-pen"></i></a>
     <form onsubmit="return confirm('Sei sicuro di voler eliminare {{$project->name}} ?')" action="{{route('admin.projects.destroy', $project)}}" method="POST" class="d-inline-block">
       @csrf
       @method('DELETE')
