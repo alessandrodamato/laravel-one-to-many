@@ -30,7 +30,13 @@ class ProjectController extends Controller
      */
     public function create()
     {
-
+      $project = null;
+      $types = Type::all();
+      $action = 'Aggiungi un progetto';
+      $method = 'POST';
+      $btn = 'Aggiungi';
+      $route = route('admin.projects.store');
+      return view('admin.projects.create-edit', compact('project','types', 'action', 'method', 'route', 'btn'));
     }
 
     /**
@@ -70,7 +76,11 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
       $types = Type::all();
-      return view('admin.projects.edit', compact('project', 'types'));
+      $action = 'Modifica' . ' ' . $project->name;
+      $method = 'PUT';
+      $btn = 'Aggiorna';
+      $route = route('admin.projects.update', $project);
+      return view('admin.projects.create-edit', compact('project', 'types', 'action', 'method', 'route', 'btn'));
     }
 
     /**

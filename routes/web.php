@@ -26,7 +26,7 @@ Route::middleware(['auth', 'verified'])
       ->prefix('admin')
       ->group(function(){
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-        Route::resource('/projects', ProjectController::class)->except('create');
+        Route::resource('/projects', ProjectController::class);
         Route::resource('/technologies', TechnologyController::class)->except('create', 'edit', 'show');
         Route::resource('/types', TypeController::class)->except('create', 'edit', 'show');
         Route::get('/types-projects', [TypeController::class, 'typesProjects'])->name('types-projects');
