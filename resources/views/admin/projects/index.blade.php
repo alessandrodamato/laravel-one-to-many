@@ -44,6 +44,7 @@
           <th scope="col">Creator</th>
           <th scope="col">Objective</th>
           <th scope="col">Type</th>
+          <th scope="col">Description</th>
           <th scope="col" class="text-center">Actions</th>
         </tr>
       </thead>
@@ -63,6 +64,7 @@
                 @endforeach
               </select>
             </td>
+            <td><input class="w-100 add-project" type="text" placeholder="Aggiungi descrizione" name="description" value="{{old('description')}}"></td>
             <td class="text-center">
               <button type="submit" class="btn btn-success"><i class="fa-solid fa-plus"></i></button>
               <a href="{{route('admin.projects.create')}}" class="btn btn-secondary"><i class="fa-solid fa-file-circle-plus"></i></a>
@@ -87,6 +89,7 @@
                 @endforeach
               </select>
             </td>
+            <td><input class="w-100 add-project" type="text" placeholder="Aggiungi descrizione" name="description" value="{{$item->description}}"></td>
           </form>
           <td class="text-center">
             <a href="{{route('admin.projects.show', $item)}}" class="btn btn-dark"><i class="fa-solid fa-eye"></i></a>
