@@ -57,7 +57,7 @@
             <td><input class="w-100 add-project" type="text" placeholder="Aggiungi creatore" name="creator" value="{{old('creator')}}"></td>
             <td><input class="w-100 add-project" type="text" placeholder="Aggiungi obiettivo" name="objective" value="{{old('objective')}}"></td>
             <td>
-              <select class="select-empty" onchange="this.value === 'empty' ? this.className = 'select-empty' : this.className = 'text-black'" name="type_id">
+              <select style="-webkit-appearance: none; -moz-appearance: none;" class="select-empty" onchange="this.value === 'empty' ? this.className = 'select-empty' : this.className = 'text-black'" name="type_id">
                 <option class="text-black" value="empty">Seleziona tipo</option>
                 @foreach ($types as $type)
                   <option class="text-black" value="{{$type->id}}" @if($type->id == old('type_id')) selected @endif>{{$type->name}}</option>
@@ -81,7 +81,7 @@
             <td><input class="w-100" type="text" value="{{$item->creator}}" name="creator"></td>
             <td><input class="w-100" type="text" value="{{$item->objective}}" name="objective"></td>
             <td>
-              <select name="type_id">
+              <select style="-webkit-appearance: none; -moz-appearance: none;" name="type_id">
                 <option value="">---</option>
                 @foreach ($types as $type)
                   <option value="{{$type->id}}" @if($type->id == $item->type?->id) selected @endif>{{$type->name}}</option>
